@@ -3,8 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.http.ContentType.JSON;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class RequestTest {
     @Test
@@ -65,7 +64,7 @@ public class RequestTest {
                 .when()
                 .post("https://reqres.in/api/register")
                 .then()
-                .body("token", is("QpwL5tke4Pnpja7X4"));
+                .body("token", notNullValue());
     }
 
 
